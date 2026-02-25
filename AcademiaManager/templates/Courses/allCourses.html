@@ -1,0 +1,24 @@
+{% extends 'Courses/base.html' %}
+{% block title %}All Courses{% endblock %}
+{% block content %}
+<h2>All Courses</h2>
+<a href="{% url 'add_course' %}" class="btn btn-primary mb-3">Add Course</a>
+<ul class="list-group">
+  {% for course in courses %}
+    <li class="list-group-item d-flex justify-content-between">
+
+      {{ course.name }} ({{ course.code }})
+
+      <div>
+        <a href="{% url 'single_course' course.code %}" class="btn btn-sm btn-info">View</a>
+
+        <a href="{% url 'edit_course' course.code %}" class="btn btn-sm btn-warning">Edit</a>
+
+        <a href="{% url 'delete_course' course.code %}" class="btn btn-sm btn-danger">Delete</a>
+      </div>
+    </li>
+  {% else %}
+  <p>No courses were found</p>
+  {% endfor %}
+</ul>
+{% endblock %}

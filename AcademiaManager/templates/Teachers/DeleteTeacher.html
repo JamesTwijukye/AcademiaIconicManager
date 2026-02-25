@@ -1,0 +1,18 @@
+{% extends 'Teachers/base.html' %}
+
+{% block title %}Delete Student{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="height: 70vh;">
+  <div class="card shadow p-4" style="max-width: 400px; width: 100%;">
+    <h2 class="text-center mb-3">Delete Student</h2>
+    <p class="text-center">Are you sure you want to delete <strong>{{ student.first_name }} {{ student.last_name }}</strong>?</p>
+
+    <form method="POST" class="text-center mt-4">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger me-2">Yes, Delete</button>
+      <a href="{% url 'single_teacher' teacher.pk %}" class="btn btn-outline-secondary">Cancel</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

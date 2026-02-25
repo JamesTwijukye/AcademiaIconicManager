@@ -1,0 +1,20 @@
+{% extends 'Teachers/base.html' %}
+{% block title %}Teacher profile{% endblock %}
+
+{% block content %}
+
+<p>{% if form.instance.pk %}Edit{% else %}Create{% endif %}Teacher</p>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% if form.instance.photo %}
+    <div class="text-center mb-3">
+        <img src="{{ form.instance.photo.url }}" alt="Profile Picture" class="rounded-circle"
+            style="width: 150px; height: 150px; object-fit: cover;">
+    </div>
+    {% endif %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary text-center ">Save</button>
+    <a href="{% url 'single_teacher' %}">Cancel</a>
+</form>
+
+{% endblock %}

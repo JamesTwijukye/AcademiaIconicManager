@@ -1,0 +1,13 @@
+
+{% extends 'Courses/base.html' %}
+{% block title %}{{ course.title }}{% endblock %}
+{% block content %}
+<h2>{{ course.title }} ({{ course.code }})</h2>
+<p><strong>Credits:</strong> {{ course.credits }}</p>
+<p><strong>Description:</strong> {{ course.description }}</p>
+<p><strong>Teacher:</strong> {{ course.teacher }}</p>
+<p><strong>Department:</strong> {{ course.department }}</p>
+<p><strong>Semester:</strong> {{ course.semester }}</p>
+<a href="{% url 'edit_course' course.code %}" class="btn btn-warning">Edit</a>
+<a href="{% url 'delete_course' course.code %}" class="btn btn-danger">Delete</a>
+{% endblock %}

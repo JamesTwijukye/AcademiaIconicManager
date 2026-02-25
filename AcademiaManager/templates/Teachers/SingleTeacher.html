@@ -1,0 +1,33 @@
+{% extends 'Teachers/base.html' %}
+{% block title %}Teacher profile{% endblock %}
+
+{% block content %}
+<div class="container mt-10">
+    <div class="card mx-auto shadow-md rounded-4 p-4 mb-3" style="max-width: 600px;">
+        <h2 class="text-capitalize text-center text-primary fs-8 fw-bold">Teacher Profile</h2>
+
+        <!-- Profile Image -->
+        <img src="{{ teacher.photo.url }}" alt="Profile Picture" class="rounded-circle mt-2 mb-3 d-block mx-auto" style="width: 150px; height: 150px; object-fit: cover;">
+
+        <!-- Full Name -->
+        <p class="text-capitalize text-center text-primary fw-semibold fs-5">{{ teacher.first_name }} {{ teacher.last_name }}</p>
+
+        <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item d-flex justify-content-between">
+                <strong>ID:</strong><span>{{ teacher.teacher_id }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+                <strong>Email:</strong><span>{{ teacher.email }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+                <strong>Phone:</strong><span>{{ teacher.phone }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+                <strong>Created:</strong><span>{{ teacher.dateCreated }}</span>
+            </li>
+        </ul>
+            <a href="{% url 'all_teachers' %}" class="btn btn-primary btn-back">← Back to All Teachers</a>
+
+    </div>
+</div>
+{% endblock %}
