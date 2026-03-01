@@ -57,4 +57,4 @@ CSS3
 
 JavaScript
 
-SQLite / PostgreSQL (depending on configuration)
+SQLite 3
